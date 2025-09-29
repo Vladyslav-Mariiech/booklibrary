@@ -1,0 +1,918 @@
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: burlywood;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Навигация */
+.navigation {
+    background: #2c3e50;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navigation-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.navigation-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.navigation-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navigation-left,
+.navigation-right {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+.navigation-left a,
+.navigation-right a {
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.navigation-left a:hover,
+.navigation-right a:hover {
+    background-color: #34495e;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.arrow {
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.dropdown.active .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s;
+}
+
+.dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f8f9fa;
+}
+
+/* Основной контент */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Контейнер */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Заголовки */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s;
+    line-height: 1.5;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #219a52;
+}
+
+.btn-warning {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #e67e22;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+/* Формы */
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-control.is-invalid {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.invalid-feedback {
+    display: block;
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.text-muted {
+    color: #6c757d;
+    font-size: 12px;
+}
+
+/* Таблицы */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table img {
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Модальные окна */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 1050;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-dialog {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+/* Алерты */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-dismissible {
+    padding-right: 50px;
+}
+
+.alert-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.alert-close:hover {
+    opacity: 1;
+}
+
+/* Уведомления */
+.alert-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 300px;
+}
+
+.alert-container .alert {
+    margin-bottom: 10px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Форма чекбокса */
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.form-check-input {
+    width: auto;
+}
+
+.form-check-label {
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .navigation-container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .navigation-content {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .navigation-left,
+    .navigation-right {
+        justify-content: center;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .table {
+        font-size: 12px;
+    }
+
+    .modal-dialog {
+        width: 95%;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+/* Стили для страницы авторов - добавить в app.css */
+
+/* Панель управления */
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Панель поиска */
+.search-panel {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-input {
+    min-width: 250px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Группа сортировки */
+.sort-group {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-size: 14px;
+}
+
+.sort-group label {
+    margin-right: 10px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+/* Кнопки сортировки */
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 12px;
+    min-width: 50px;
+}
+
+/* Центрирование текста */
+.text-center {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Пагинация */
+.pagination-wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Стили для Laravel пагинации */
+.pagination {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.pagination li {
+    display: block;
+}
+
+.pagination a,
+.pagination span {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #3498db;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+.pagination .active span {
+    background-color: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+.pagination .disabled span {
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    cursor: not-allowed;
+}
+
+/* Адаптивность для панели управления */
+@media (max-width: 768px) {
+    .control-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-input {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .sort-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .table {
+        font-size: 12px;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px 4px;
+    }
+}
+
+/* ========================================================================= */
+/* Стили для публичной страницы книг (index.book) */
+/* ========================================================================= */
+
+/* Контейнер для фильтра и сортировки */
+.filter-panel {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Светлый фон, как в инлайне */
+    border-radius: 8px;
+}
+
+/* Форма поиска и сортировки */
+.filter-panel form {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Группа поиска */
+.filter-search-group {
+    display: flex;
+    gap: 5px;
+}
+
+.filter-search-group input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 300px;
+}
+
+/* Кнопка Поиск */
+.filter-panel button[type="submit"] {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-panel button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Кнопка Сброс */
+.filter-panel a.btn-reset {
+    padding: 8px 15px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.filter-panel a.btn-reset:hover {
+    background-color: #5a6268;
+}
+
+/* Управление сортировкой */
+.sort-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.sort-controls span {
+    font-weight: 500;
+}
+
+/* Ссылки сортировки (кнопки ↑ А-Я, ↓ Я-А) */
+.sort-controls a {
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+/* Стиль по умолчанию для кнопок сортировки */
+.sort-controls a {
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #333;
+}
+
+/* Активный стиль для сортировки (используем PHP в Blade для установки класса) */
+.sort-controls a.active-sort {
+    border: 1px solid #007bff;
+    background-color: #007bff;
+    color: white;
+}
+
+/* Блок информации о результатах */
+.results-info {
+    margin-bottom: 20px;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Контейнер для карточек книг */
+.book-list-grid {
+    display: grid;
+    gap: 20px;
+}
+
+/* Карточка одной книги */
+.book-card {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.book-card-content {
+    display: flex;
+    gap: 20px;
+}
+
+/* Изображение обложки */
+.book-card-image-wrapper {
+    flex-shrink: 0; /* Гарантирует, что изображение не сожмется */
+}
+
+.book-card-image {
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+/* Заглушка, если нет обложки */
+.book-card-no-image {
+    width: 120px;
+    height: 160px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* Информационный блок */
+.book-card-info {
+    flex: 1;
+}
+
+.book-card-info h3 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.book-card-info p {
+    margin: 5px 0;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.book-card-info strong {
+    font-weight: 600;
+    color: #495057;
+}
+
+.book-card-description {
+    margin: 10px 0 0 0 !important; /* Перебиваем margin p */
+    color: #495057 !important;
+}
+
+/* Адаптивность для карточек */
+@media (max-width: 600px) {
+    .book-card-content {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.book-card-actions {
+    margin-top: 15px;
+}
+
+.btn-details {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-details:hover {
+    background-color: #0056b3;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-dialog {
+    max-width: 800px;
+    width: 90%;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.book-details-image {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.col-md-4 {
+    flex: 0 0 33.333%;
+}
+
+.col-md-8 {
+    flex: 0 0 66.667%;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    .col-md-4, .col-md-8 {
+        flex: 1;
+    }
+}
