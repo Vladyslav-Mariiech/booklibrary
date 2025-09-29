@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Crud\BookController as CrudBookController;
+use App\Http\Controllers\Templates\BookController as TemplateBookController;
+use App\Http\Controllers\Crud\AuthorController as CrudAuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +20,13 @@ use App\Http\Controllers\Auth\RegisterController;
 */
 
 Route::get('/', [MainController::class, 'index'])->name('home');
+Route::get('/books', [TemplateBookController::class, 'index'])->name('books.index');
 
 
 Route::get('/secretRoom', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/secretRoom', [LoginController::class, 'login']);
-Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('register', [RegisterController::class, 'register']);
+Route::get('/secretMember', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/secretMember', [RegisterController::class, 'register']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->prefix('crud')->name('crud.')->group(function () {
